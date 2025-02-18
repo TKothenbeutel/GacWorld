@@ -23,7 +23,7 @@ public class GackWorld extends World {
 		Place offices = new Place("Offices");
 		Place dormitory = new Place("Dormitory");
 		Place pond = new Place("Pond");
-		//Place lund = new Place("Lund");
+		Place lund = new Place("Lund");
 		
 		foodService.addNewNeighbor("down", po);
 		po.addNewNeighbor("south", alumniHall);
@@ -44,7 +44,7 @@ public class GackWorld extends World {
 		computerLab.addNewNeighbor("east", lounge);
 		offices.addNewNeighbor("north", lounge);
 		
-		//dormitory.addNewNeighbor("northwest", lund);	
+		dormitory.addNewNeighbor("northwest", lund);	
 		
 		
 		new AutoPerson("Max", offices, 2);
