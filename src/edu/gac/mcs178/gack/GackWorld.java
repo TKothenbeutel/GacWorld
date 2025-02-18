@@ -62,6 +62,8 @@ public class GackWorld extends World {
 		computerLab.gain(new Scroll("Unix Programmers Manual"));
 		computerLab.gain(new Scroll("NeXT User's Reference"));
 		
+		lund.gain(new Scroll("Louis blows up"));
+		
 		setPlayer(new Person("player", dormitory));
 	}
 }
