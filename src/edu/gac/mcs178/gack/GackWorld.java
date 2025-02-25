@@ -63,6 +63,7 @@ public class GackWorld extends World {
 		computerLab.gain(new Scroll("NeXT User's Reference"));
 		
 		lund.gain(new Scroll("Louis blows up"));
+		//Nick test
 		
 		setPlayer(new Person("player", dormitory));
 	}
