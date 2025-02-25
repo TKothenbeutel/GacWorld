@@ -106,6 +106,22 @@ public class Person {
 		}
 	}
 	
+	//Add give function to give people the stuffs
+	public void give(Thing thing, Person person){
+	    if (equals(thing.getOwner())){
+	    //We currently have this
+	       Person owner = thing.getOwner();
+	    owner.lose(thing);
+	    thing.setOwner(person);
+	    owner.possessions.remove(thing);
+	    person.possessions.add(thing);
+	    say("I gave " + thing + "to " + person + ".\n" + "Yay!");
+	    }
+	    else{
+	       Utility.displayMessage("I dont have this " + thing + " so I can't give it");
+	    }
+	}
+	
 	public void lose(Thing thing) {
 		if (!equals(thing.getOwner())) {
 			Utility.displayMessage(this + " doesn't have " + thing);
