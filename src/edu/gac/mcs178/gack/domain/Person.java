@@ -108,14 +108,12 @@ public class Person {
 	
 	//Add give function to give people the stuffs
 	public void give(Thing thing, Person person){
-	    if (equals(thing.getOwner())){
-	    //We currently have this
-	       Person owner = thing.getOwner();
-	    owner.lose(thing);
-	    thing.setOwner(person);
-	    owner.possessions.remove(thing);
-	    person.possessions.add(thing);
-	    say("I gave " + thing + "to " + person + ".\n" + "Yay!");
+	    if (equals(thing.getOwner())) {
+	    	//We currently have this
+		    lose(thing);
+		    thing.setOwner(person);
+		    person.possessions.add(thing);
+		    say("I gave " + thing + " to " + person);
 	    }
 	    else{
 	       Utility.displayMessage("I dont have this " + thing + " so I can't give it");

@@ -17,12 +17,12 @@ public class GiveActionListener implements ActionListener {
 	
 	private GraphicalUserInterface gui;
 	private Person player;
-	private JComboBox giveJComboBox;
+	private JComboBox<Thing> giveJComboBox;
 	private boolean enabled;
 	private List<Thing> things;
 	private List<Person> people;
 
-	public GiveActionListener(GraphicalUserInterface gui, Person player, JComboBox giveJComboBox) {
+	public GiveActionListener(GraphicalUserInterface gui, Person player, JComboBox<Thing> giveJComboBox) {
 		super();
 		this.gui = gui;
 		this.player = player;
@@ -89,8 +89,14 @@ class GiveAction extends AbstractAction  {
 	}
 
 	public void actionPerformed(ActionEvent event) {
-		gui.displayMessage("You need to write the code here to have " + player + " give " + item + " to " + recipient);
-		gui.playTurn();
+		if(enabled) {
+			if(recipient.getName() == "Max" && item.getName() == "Late Lab Report") {
+				player.give(item, recipient);
+			}else {
+				gui.displayMessage(recipient + " does not want your " + item);
+			}
+			gui.playTurn();
+		}		
 	}
 }
 
