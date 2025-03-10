@@ -44,7 +44,9 @@ public class GackWorld extends World {
 		computerLab.addNewNeighbor("east", lounge);
 		offices.addNewNeighbor("north", lounge);
 		
-		dormitory.addNewNeighbor("northwest", lund);	
+		dormitory.addNewNeighbor("northwest", lund);
+		//Added neighbor to lund because if you go there rn, ur stuck
+		lund.addNewNeighbor("southeast", dormitory);
 		
 		
 		new AutoPerson("Max", offices, 2);
@@ -53,6 +55,10 @@ public class GackWorld extends World {
 		new Wizard("Elvee", offices, 1, chamberOfWizards);
 		
 		lounge.gain(new Thing("Karl's glasses"));
+		//New thing chocolates! in food service
+		foodService.gain(new Thing("White Chocolate"));
+		foodService.gain(new Thing("Dark Chocolate"));
+		foodService.gain(new Thing("Milk Chocolate"));
 		
 		library.gain(new Scroll("Scroll of Enlightenment"));
 		String[] someTitles = {"War and Peace", "Iliad", "Collected Works of Rilke"};
@@ -64,6 +70,7 @@ public class GackWorld extends World {
 		
 		lund.gain(new Scroll("Louis blows up"));
 		//Nick test
+		
 		
 		setPlayer(new Person("player", dormitory));
 	}
