@@ -65,7 +65,8 @@ public class GackWorld extends World {
 		computerLab.gain(new Scroll("NeXT User's Reference"));
 		
 		lund.gain(new Scroll("Louis blows up"));
-		//Nick test
+		//New Scroll "late lab report"
+		dormitory.gain(new Scroll("Late Lab Report"));
 		
 		setPlayer(new Person("player", dormitory));
 	}
