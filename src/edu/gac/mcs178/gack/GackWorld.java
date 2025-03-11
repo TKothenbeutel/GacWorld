@@ -4,6 +4,7 @@ import edu.gac.mcs178.gack.domain.AutoPerson;
 import edu.gac.mcs178.gack.domain.Person;
 import edu.gac.mcs178.gack.domain.Place;
 import edu.gac.mcs178.gack.domain.Scroll;
+import edu.gac.mcs178.gack.domain.Map;
 import edu.gac.mcs178.gack.domain.Thing;
 import edu.gac.mcs178.gack.domain.Witch;
 import edu.gac.mcs178.gack.domain.Wizard;
@@ -46,6 +47,7 @@ public class GackWorld extends World {
 		
 		dormitory.addNewNeighbor("northwest", lund);	
 		
+		dormitory.gain(new Map("Gack Map"));
 		
 		new AutoPerson("Max", offices, 2);
 		new AutoPerson("Karl", computerLab, 4);
