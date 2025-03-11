@@ -7,6 +7,7 @@ import edu.gac.mcs178.gack.domain.Scroll;
 import edu.gac.mcs178.gack.domain.Thing;
 import edu.gac.mcs178.gack.domain.Witch;
 import edu.gac.mcs178.gack.domain.Wizard;
+import edu.gac.mcs178.gack.domain.Food;
 
 public class GackWorld extends World {
 	
@@ -56,7 +57,7 @@ public class GackWorld extends World {
 		
 		lounge.gain(new Thing("Karl's glasses"));
 		//New thing chocolates! in food service
-		foodService.gain(new Thing("White Chocolate"));
+		foodService.gain(new Food("White Chocolate"));
 		foodService.gain(new Thing("Dark Chocolate"));
 		foodService.gain(new Thing("Milk Chocolate"));
 		

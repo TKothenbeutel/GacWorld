@@ -23,14 +23,6 @@ public class Thing {
 		owner = null;
 	}
 	
-	//Adding a beEaten function for the chocolates
-	//When a chocolate is eaten, the owner loses it and 
-	//it is gone from the place where the owner is located.
-	//Not entirely sure this is where beEaten should go.
-	public void beEaten(String name) {
-		becomeUnowned();
-	}
-	
 	@Override
 	public String toString() {
 		return name;

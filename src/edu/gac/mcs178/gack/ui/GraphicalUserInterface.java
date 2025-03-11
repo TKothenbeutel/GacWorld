@@ -35,11 +35,13 @@ public class GraphicalUserInterface extends JFrame implements MessageDisplay {
 	private JComboBox dropJComboBox;
 	private JComboBox readJComboBox;
 	private JComboBox giveJComboBox;
+	private JComboBox eatJComboBox;
 	private GoActionListener goActionListener;
 	private TakeActionListener takeActionListener;
 	private DropActionListener dropActionListener;
 	private ReadActionListener readActionListener;
 	private GiveActionListener giveActionListener;
+	private EatActionListener eatActionListener;
 	
 	public GraphicalUserInterface(Person player) {
 		super();
@@ -66,6 +68,18 @@ public class GraphicalUserInterface extends JFrame implements MessageDisplay {
 		JButton lookAroundButton = new JButton("Look around");
 		lookAroundButton.addActionListener(new LookAroundActionListener(this, player));
 		controlPanel.add(lookAroundButton);
+		
+		// List possessions button
+		
+		JButton listPossessionsButton = new JButton("List possessions");
+		listPossessionsButton.addActionListener(new ListPossessionsActionListener(this, player));
+		controlPanel.add(listPossessionsButton);
+		
+		// Change player's name button
+		
+		JButton changeNameButton = new JButton("Change player's name");
+		changeNameButton.addActionListener(new ChangePlayersNameActionListener(this, player));
+		controlPanel.add(changeNameButton);
 		
 		// Pace slider
 		
@@ -94,12 +108,6 @@ public class GraphicalUserInterface extends JFrame implements MessageDisplay {
 		takeJComboBox.addActionListener(takeActionListener);
 		controlPanel.add(takeJComboBox);
 		
-		// List possessions button
-		
-		JButton listPossessionsButton = new JButton("List possessions");
-		listPossessionsButton.addActionListener(new ListPossessionsActionListener(this, player));
-		controlPanel.add(listPossessionsButton);
-		
 		// Go combo box
 		
 		goJComboBox = new JComboBox();
@@ -114,11 +122,7 @@ public class GraphicalUserInterface extends JFrame implements MessageDisplay {
 		giveJComboBox.addActionListener(giveActionListener);
 		controlPanel.add(giveJComboBox);
 
-		// Change player's name button
 		
-		JButton changeNameButton = new JButton("Change player's name");
-		changeNameButton.addActionListener(new ChangePlayersNameActionListener(this, player));
-		controlPanel.add(changeNameButton);
 
 		// Read combo box
 		
@@ -126,6 +130,13 @@ public class GraphicalUserInterface extends JFrame implements MessageDisplay {
 		readActionListener = new ReadActionListener(this, player, readJComboBox);
 		readJComboBox.addActionListener(readActionListener);
 		controlPanel.add(readJComboBox);
+		
+		// Eat combo box
+		
+		eatJComboBox = new JComboBox();
+		eatActionListener = new EatActionListener(this, player, eatJComboBox);
+		eatJComboBox.addActionListener(eatActionListener);
+		controlPanel.add(eatJComboBox);
 
 		// Drop combo box
 		
@@ -147,6 +158,7 @@ public class GraphicalUserInterface extends JFrame implements MessageDisplay {
 		dropActionListener.updateJComboBox();
 		readActionListener.updateJComboBox();
 		giveActionListener.updateJComboBox();
+		eatActionListener.updateJComboBox();
 		enableJComboListeners(true);
 	}
 	
@@ -156,6 +168,7 @@ public class GraphicalUserInterface extends JFrame implements MessageDisplay {
 		dropActionListener.setEnabled(b);
 		readActionListener.setEnabled(b);
 		giveActionListener.setEnabled(b);
+		eatActionListener.setEnabled(b);
 	}
 	
 	public void displayMessage(String text) {
