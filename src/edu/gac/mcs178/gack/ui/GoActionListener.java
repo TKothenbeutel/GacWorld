@@ -7,6 +7,8 @@ import java.util.List;
 import javax.swing.JComboBox;
 
 import edu.gac.mcs178.gack.domain.Person;
+import edu.gac.mcs178.gack.domain.Map;
+
 
 public class GoActionListener implements ActionListener {
 	
@@ -37,7 +39,17 @@ public class GoActionListener implements ActionListener {
 	
 	public void updateJComboBox() {
 		goJComboBox.removeAllItems();
-		exits = player.getPlace().exits();
+		//Check if player has a map
+		if(player.hasPossessionType(Map.class)) { 
+			exits = player.getPlace().exits();
+			for(int i = 0; i < exits.size(); i++) {
+				exits.set(i,
+						exits.get(i) + " >> " + player.getPlace().neighborTowards(exits.get(i)).getName());
+			}
+		}
+		else {
+			exits = player.getPlace().exits();
+		}
 		goJComboBox.addItem(INTSRUCTIONS);
 		for (String exit : exits) {
 			goJComboBox.addItem(exit);
@@ -48,6 +60,10 @@ public class GoActionListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (enabled) {
 			String exit = (String) goJComboBox.getSelectedItem();
+			if(exit.contains(" >> ")) {
+				Integer chopIndex = exit.indexOf(" >> ");
+				exit = exit.substring(0, chopIndex);
+			}
 			if (!exit.equals(INTSRUCTIONS)) {
 				gui.displayMessage("\n>>> Go " + exit);
 				player.go(exit);

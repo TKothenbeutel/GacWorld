@@ -4,6 +4,7 @@ import edu.gac.mcs178.gack.domain.AutoPerson;
 import edu.gac.mcs178.gack.domain.Person;
 import edu.gac.mcs178.gack.domain.Place;
 import edu.gac.mcs178.gack.domain.Scroll;
+import edu.gac.mcs178.gack.domain.Map;
 import edu.gac.mcs178.gack.domain.Thing;
 import edu.gac.mcs178.gack.domain.Witch;
 import edu.gac.mcs178.gack.domain.Wizard;
@@ -49,7 +50,6 @@ public class GackWorld extends World {
 		//Added neighbor to lund because if you go there rn, ur stuck
 		lund.addNewNeighbor("southeast", dormitory);
 		
-		
 		new AutoPerson("Max", offices, 2);
 		new AutoPerson("Karl", computerLab, 4);
 		new Witch("Barbara", offices, 3, pond);
@@ -70,7 +70,11 @@ public class GackWorld extends World {
 		computerLab.gain(new Scroll("NeXT User's Reference"));
 		
 		lund.gain(new Scroll("Louis blows up"));
-		//Nick test
+		//New Scroll "late lab report"
+		dormitory.gain(new Scroll("Late Lab Report"));
+		
+		//New Map type "Gack Map"
+		library.gain(new Map("Gack Map"));
 		
 		
 		setPlayer(new Person("player", dormitory));

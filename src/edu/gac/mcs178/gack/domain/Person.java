@@ -58,6 +58,15 @@ public class Person {
 		say("I have " + Utility.verbalizeList(possessions, "nothing"));
 	}
 	
+	public boolean hasPossessionType(Class<?> classType) {
+		for(int i = 0; i < this.possessions.size(); i++) {
+			if(this.possessions.get(i).getClass() == classType) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public void read(Scroll scroll) {
 		if ((scroll.isOwned()) && (scroll.getOwner().equals(this))) {
 			scroll.beRead();
@@ -112,6 +121,20 @@ public class Person {
 			possessions.add(thing);
 			say("I take " + thing);
 		}
+	}
+	
+	//Add give function to give people the stuffs
+	public void give(Thing thing, Person person){
+	    if (equals(thing.getOwner())) {
+	    	//We currently have this
+		    lose(thing);
+		    thing.setOwner(person);
+		    person.possessions.add(thing);
+		    say("I gave " + thing + " to " + person);
+	    }
+	    else{
+	       Utility.displayMessage("I dont have this " + thing + " so I can't give it");
+	    }
 	}
 	
 	public void lose(Thing thing) {
