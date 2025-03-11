@@ -58,8 +58,8 @@ public class GackWorld extends World {
 		lounge.gain(new Thing("Karl's glasses"));
 		//New thing chocolates! in food service
 		foodService.gain(new Food("White Chocolate"));
-		foodService.gain(new Thing("Dark Chocolate"));
-		foodService.gain(new Thing("Milk Chocolate"));
+		foodService.gain(new Food("Dark Chocolate"));
+		foodService.gain(new Food("Milk Chocolate"));
 		
 		library.gain(new Scroll("Scroll of Enlightenment"));
 		String[] someTitles = {"War and Peace", "Iliad", "Collected Works of Rilke"};

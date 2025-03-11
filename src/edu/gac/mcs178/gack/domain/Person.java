@@ -75,11 +75,11 @@ public class Person {
 		}
 	}
 	
-	public void eat(Food food) {
-		if ((food.isOwned()) && (food.getOwner().equals(this))) {
-			food.beEaten();
+	public void eat(Food item) {
+		if ((item.isOwned()) && (item.getOwner().equals(this))) {
+			item.beEaten();
 		} else {
-			Utility.displayMessage(this + " does not have " + food);
+			Utility.displayMessage(this + " does not have " + item);
 		}
 	}
 	
