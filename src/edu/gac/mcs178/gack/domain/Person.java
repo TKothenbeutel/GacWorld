@@ -67,6 +67,15 @@ public class Person {
 		return false;
 	}
 	
+	public Thing hasPossession(Class<?> classType) {
+		for(int i = 0; i < this.possessions.size(); i++) {
+			if(this.possessions.get(i).getClass() == classType) {
+				return this.possessions.get(i);
+			}
+		}
+		return null;
+	}
+	
 	public void read(Scroll scroll) {
 		if ((scroll.isOwned()) && (scroll.getOwner().equals(this))) {
 			scroll.beRead();
@@ -119,7 +128,7 @@ public class Person {
 			}
 			thing.setOwner(this);
 			possessions.add(thing);
-			say("I take " + thing);
+			say(thing.getOwner() + " took " + thing);
 		}
 	}
 	

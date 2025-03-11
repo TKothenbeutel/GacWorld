@@ -1,9 +1,11 @@
 package edu.gac.mcs178.gack.domain;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import edu.gac.mcs178.gack.Utility;
+import edu.gac.mcs178.gack.domain.Food;
 
 public class Witch extends AutoPerson {
 	
@@ -26,9 +28,16 @@ public class Witch extends AutoPerson {
 	}
 
 	public void curse(Person person) {
+		if (person.hasPossession(Food.class) != null) {
+			say("You got lucky this time, kekeke!");
+			Food item = (Food) person.hasPossession(Food.class);
+			this.take(item);
+			this.eat(item);
+		} else {
 		say("Hah hah hah, I'm going to turn you into a frog, " + person);
 		turnIntoFrog(person);
 		say("Hee hee " + person + " looks better in green!");
+		}
 	}
 	
 	public void turnIntoFrog(Person person) {
