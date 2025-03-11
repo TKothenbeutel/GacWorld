@@ -40,7 +40,7 @@ public class GoActionListener implements ActionListener {
 	public void updateJComboBox() {
 		goJComboBox.removeAllItems();
 		//Check if player has a map
-		if(player.hasPossessionType(Map.class)) { 
+		if(player.hasPossession(Map.class) != null) { 
 			exits = player.getPlace().exits();
 			for(int i = 0; i < exits.size(); i++) {
 				exits.set(i,

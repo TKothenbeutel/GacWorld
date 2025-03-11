@@ -58,15 +58,6 @@ public class Person {
 		say("I have " + Utility.verbalizeList(possessions, "nothing"));
 	}
 	
-	public boolean hasPossessionType(Class<?> classType) {
-		for(int i = 0; i < this.possessions.size(); i++) {
-			if(this.possessions.get(i).getClass() == classType) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
 	public Thing hasPossession(Class<?> classType) {
 		for(int i = 0; i < this.possessions.size(); i++) {
 			if(this.possessions.get(i).getClass() == classType) {
