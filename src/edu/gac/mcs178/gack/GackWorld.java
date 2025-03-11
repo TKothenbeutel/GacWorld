@@ -47,8 +47,6 @@ public class GackWorld extends World {
 		
 		dormitory.addNewNeighbor("northwest", lund);	
 		
-		dormitory.gain(new Map("Gack Map"));
-		
 		new AutoPerson("Max", offices, 2);
 		new AutoPerson("Karl", computerLab, 4);
 		new Witch("Barbara", offices, 3, pond);
@@ -67,6 +65,9 @@ public class GackWorld extends World {
 		lund.gain(new Scroll("Louis blows up"));
 		//New Scroll "late lab report"
 		dormitory.gain(new Scroll("Late Lab Report"));
+		
+		//New Map type "Gack Map"
+		library.gain(new Map("Gack Map"));
 		
 		setPlayer(new Person("player", dormitory));
 	}
