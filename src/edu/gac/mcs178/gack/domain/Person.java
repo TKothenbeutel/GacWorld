@@ -147,6 +147,15 @@ public class Person {
 		}
 	}
 	
+	public void remove(Thing thing) {
+		if (!equals(thing.getOwner())) {
+			Utility.displayMessage(this + " doesn't have " + thing);
+		} else {
+			thing.becomeUnowned();
+			possessions.remove(thing);
+		}
+	}
+	
 	public void greet(List<Person> people) {
 		if (!people.isEmpty()) {
 			say("Hi " + Utility.verbalizeList(people, "no one")); // "no one" can't happen

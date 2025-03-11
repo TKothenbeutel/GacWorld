@@ -19,8 +19,12 @@ public class Food extends Thing {
 		if (owner == null) {
 			Utility.displayMessage("No one has " + getName());
 		} else {
-			owner.say("I ate " + getName());
-			owner.lose(this);
+			owner.say("I ate " + getName() + " and dropped a wrapper");
+			
+			owner.remove(this);
+			owner.getPlace().lose(this);
+			owner.getPlace().gain(new Thing("Wrapper"));
+			
 		}
 	}
 	
